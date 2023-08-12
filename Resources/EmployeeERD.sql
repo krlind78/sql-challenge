@@ -3,14 +3,14 @@
 
 departments
 -
-dept_no VARCHAR   
+dept_no PK VARCHAR   
 dept_name VARCHAR 
 
 --Create employees table
 
 employees
 -
-emp_no INT 
+emp_no PK INT 
 emp_title VARCHAR
 birth_date DATE
 first_name VARCHAR
@@ -23,23 +23,23 @@ hire_date DATE
 
 dept_emp
 -
-emp_no INT   
-dept_no VARCHAR 
+emp_no INT FK >- employees.emp_no 
+dept_no VARCHAR FK >- departments.dept_no
 
 
 -- Create dept_manager table
 
 dept_manager 
 -
-dept_no VARCHAR   
-emp_no INT
+dept_no VARCHAR FK >- departments.dept_no
+emp_no INT FK >- employees.emp_no
 
 
 -- Create salaries table
 
 salaries
 -
-emp_no INT  
+emp_no INT FK >- employees.emp_no
 salary BIGINT 
 
 
@@ -47,5 +47,5 @@ salary BIGINT
 
 titles
 -
-title_id VARCHAR
+title_id VARCHAR FK >- employees.emp_no
 title VARCHAR
